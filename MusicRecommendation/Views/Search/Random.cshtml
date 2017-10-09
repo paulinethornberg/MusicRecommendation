@@ -1,0 +1,56 @@
+﻿@model RandomTrackVM
+
+<style>
+    .result-image {
+        width: 50%;
+    }
+
+    .search-result-list {
+        /*display: inline-block;*/
+    }
+
+    .giphy-home-image {
+        padding: 20px;
+    }
+    .result-container{
+        padding-top: 20px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    input[type='checkbox'] {
+        width: 20px;
+        height: 20px;
+        background: white;
+    }
+
+       
+</style>
+
+<h3 class="test-class">Random song generated: </h3>
+
+        <div class="row result-container">
+            <div class="col-lg-4 col-sm-12 search-result-list">
+                <img class="result-image" src="@Model.ImageUrl" />
+            </div>
+            <div class="col-lg-8 col-sm-12 search-result-list">
+                <h2>@Model.Name</h2>
+                <h3>@Model.Artist</h3>
+                <video width="320" height="20" controls>
+                    <source src="@Model.PreviewUrl" type="video/mp4">
+                    <source src="@Model.PreviewUrl" type="video/ogg">
+                    Your browser does not support the video tag.
+                </video>
+                @*<a>@Model.Href</a>*@
+            </div>
+        </div>
+    }
+@using (Html.BeginForm("Random", "Search", FormMethod.Post))
+{
+    <div class="col-lg-12">
+        <input type="submit" class="btn-btn-default" value="I feel luckier!" />
+    </div>
+}
+
+<link rel="stylesheet" href="~/css/site.css" />
+
