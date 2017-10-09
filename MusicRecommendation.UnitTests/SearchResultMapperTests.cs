@@ -62,12 +62,6 @@ namespace MusicRecommendation.UnitTests
 
         }
 
-        //[Fact]
-        //public void It_should_map_href_of_tracks()
-        //{
-        //    _searchResultVM.Tracks[0].Href.ShouldBe("I am the Href");
-        //}
-
         [Fact]
         public void It_should_map_the_previewUrl_of_tracks()
         {

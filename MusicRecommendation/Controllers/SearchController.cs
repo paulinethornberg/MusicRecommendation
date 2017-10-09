@@ -1,10 +1,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MusicRecommendation.Services.Interfaces;
-using MusicRecommendation.Mappers;
 using System.Linq;
-using MusicRecommendation.Services;
-using System.Collections.Generic;
 using MusicRecommendation.ViewModels;
 using MusicRecommendation.Mappers.Interfaces;
 using MusicRecommendation.Models;
@@ -29,12 +26,7 @@ namespace MusicRecommendation.Controllers
         {
             try
             {
-                //var result = await _recommendationService.Recommend(artist);
-                //var searchResultVM = _searchResultMapper.MapToViewModel(result);
-                //return View(searchResultVM);
-                //--------------------------------------------------------------------------------------------------
-               
-                var recommendationResult = await _recommendationService.RecommendationWithArtist(artist);
+                var recommendationResult = await _recommendationService.RecommendationByArtist(artist);
                 var searchResultVM = _searchResultMapper.MapToViewModel(recommendationResult);
 
                 return View(searchResultVM);

@@ -14,10 +14,8 @@ namespace MusicRecommendation.Mappers
                 Name = x.Name,
                 Artist = x.Artists[0].Name,
                 ArtistId = x.Artists[0].Id,
-                //Href = x.Href,
                 PreviewUrl = x.Preview_url,
                 ImageUrl = x.Album.Images[0].Url,
-                //Uri = x.Uri
             }).First();
         }
 
@@ -30,9 +28,7 @@ namespace MusicRecommendation.Mappers
                     Name = x.Name,
                     Artist = x.Artists[0].Name,
                     ArtistId = x.Artists[0].Id,
-                    //Href = x.Href,
                     PreviewUrl = x.PreviewUrl,
-                    //Uri = x.Uri,
                     ImageUrl = x.Album.Images[0].Url
 
                 }).Where(x => x.PreviewUrl != null).Take(10).ToList(),

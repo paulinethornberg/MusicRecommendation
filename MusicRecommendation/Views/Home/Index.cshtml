@@ -1,88 +1,55 @@
-﻿
-<style>
-    .giphy-home-image {
-        width: 100%;
-        padding: 20px;
-        margin: 10px;
-    }
-    .btn-btn-default{
-        background-color: aquamarine;
-        color: white;
-        width:400px;
-    }
-</style>
-<link rel="stylesheet" href="~/css/site.css" type="text/css"/>
-
-
-<h1 class="test-class">Who's your favourite?</h1>
+﻿<h3 class="center">Click on a GIF to generate a music recommendation ... </h3>
 
 <div>
     @using (Html.BeginForm("Search", "Search", FormMethod.Post))
     {
-        <div class="form-group">
+        <div class="form-group center">
             <div class="row">
-                <div class="col-lg-4 col-sm-12">
-                    <label>
-                        <input type="radio" name="artist" value="Beyonce" checked="checked" />
-                        <img class="giphy-home-image" src="~/images/beyonce.gif" />
+                <div class="col-lg-4 col-sm-12 img__wrap">
+                    <input type="radio" name="artist"
+                           id="Markus2" class="input-hidden" value="Markus Krunegård" checked="checked" />
+                    <label for="Markus2">
+                        <img class="img__img" src="~/images/krunegard.gif" />
+                        <label class="img__description">Markus Krunegård</label>
                     </label>
                 </div>
-                <div class="col-lg-4 col-sm-12">
-                    <label>
-                        <input type="radio" name="artist" value="Markus Krunegård" />
-                        <img class="giphy-home-image" src="~/images/krunegard.gif" />
+                <div class="col-lg-4 col-sm-12 img__wrap">
+                    <input type="radio" name="artist"
+                           id="beyonce" class="input-hidden" value="Beyonce" />
+                    <label for="beyonce">
+                        <img class="img__img" src="~/images/beyonce.gif" />
+                        <label class="img__description">Beyonce</label>
                     </label>
                 </div>
-                <div class="col-lg-4 col-sm-12">
-                    <label>
-                        <input type="radio" name="artist" value="Jay-Z" />
-                        <img class="giphy-home-image" src="~/images/jayzupdown.webp" />
+                <div class="col-lg-4 col-sm-12 img__wrap">
+                    <input type="radio" name="artist"
+                           id="jayz" class="input-hidden" value="Jay-Z" />
+                    <label for="jayz">
+                        <img class="img__img" src="~/images/jayzupdown.webp" />
+                        <label class="img__description">Jay-Z</label>
                     </label>
                 </div>
             </div>
-            @*<div class="row">
-                <div class="col-lg-4 col-sm-12">
-                    <label>
-                        <input type="radio" name="artist" value="ABBA" checked="checked" />
-                        <img class="giphy-home-image" src="~/images/abba.gif" />
-                    </label>
-                </div>
-                <div class="col-lg-4 col-sm-12">
-                    <label>
-                        <input type="radio" name="artist" value="lucky" />
-                        <img class="giphy-home-image" src="~/images/lucky.gif" />
-                    </label>
-                </div>
-                <div class="col-lg-4 col-sm-12">
-                    <label>
-                        <input type="radio" name="artist" value="Jay-Z" />
-                        <img class="giphy-home-image" src="~/images/jayzupdown.webp" />
-                    </label>
-                </div>
-            </div>*@
-            <div class="col-lg-12">
-                <input type="submit" class="btn-btn-default" value="Search" />
-            </div>
+            <div class="col-lg-12 center">
+                <input type="submit" class="btn-btn-default generate-btn" value="GENERATE" id="submit" />
+               </div>
         </div>
     }
 </div>
 
-<div>
+<div class="lucky-row">
     @using (Html.BeginForm("Random", "Search", FormMethod.Post))
     {
         <div class="form-group">
-            <div class="row">
-                <div>
-                    <label>
-                        <input type="radio" name="artist" value="lucky" />
-                        <img class="giphy-home-image" src="~/images/lucky.gif" />
+            <div class="row lucky-row">
+                <div class="col-lg-12 center img__wrap">
+                    <input type="submit" class="input-hidden" id="lucky" />
+                    <label for="lucky">
+                        <img class="img__img" src="~/images/lucky.gif" />
+                        <label class="img__description">I feel lucky!</label>
                     </label>
                 </div>
-            </div>
-            <div class="col-lg-12">
-                <input type="submit" class="btn-btn-default" value="I Feel Lucky" />
             </div>
         </div>
     }
 </div>
-

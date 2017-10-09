@@ -2,7 +2,7 @@
 
 namespace MusicRecommendation.Models
 {
-    public class SearchArtistResponse
+    public class SpotifySearchArtistResponse
     {
         [JsonProperty("artists")]
         public SpotifyArtistsCollection Artists { get; set; }

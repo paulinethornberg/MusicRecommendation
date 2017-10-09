@@ -17,7 +17,7 @@ namespace MusicRecommendation.Services
             _spotifyService = spotifyService;
         }
 
-        public async Task<SpotifyRecommendationsResult> RecommendationWithArtist(string artist)
+        public async Task<SpotifyRecommendationsResult> RecommendationByArtist(string artist)
         {
             var searchArtistResponse = await _spotifyService.SearchArtistsAsync(artist);
             var artistId = searchArtistResponse.Artists.Items[0].Id;
@@ -33,6 +33,7 @@ namespace MusicRecommendation.Services
                 if (track.ChosenForFineTuning)
                     listOfIds.Add(track.ArtistId);
             }
+
             //Spotify recommendation-seed only takes 5 parameters
             if (listOfIds.Count > 5)
                 listOfIds = listOfIds.Take(5).ToList();

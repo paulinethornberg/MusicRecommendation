@@ -2,9 +2,6 @@
     padding-top: 50px;
     padding-bottom: 20px;
 }
-.white-background{
-    background-color: white;
-}
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
@@ -26,7 +23,133 @@ textarea {
 .giphy-home-image{
     padding: 20px;
 }
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
- 
+
+/*------- for home index*/
+
+.giphy-home-image {
+    width: 100%;
+    padding: 20px;
+    margin: 10px;
 }
+
+.generate-btn {
+    background-color: white;
+    color: black;
+    width: 800px;
+    font-size: 40px;
+}
+
+.input-hidden {
+    position: absolute;
+    left: -9999px;
+}
+
+input[type=radio]:checked + label > img {
+    border: 1px solid #000000;
+    box-shadow: 0 0 3px 3px #090;
+}
+
+input[type=radio] + label > img {
+    width: 200px;
+    height: 200px;
+    transition: 500ms all;
+}
+
+.img__wrap {
+    position: relative;
+    height: 200px;
+}
+
+.img__description {
+    position: absolute;
+    color: black;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.img__wrap:hover .img__description {
+    visibility: visible;
+    opacity: 1;
+}
+
+.lucky {
+    width: 250px;
+    height: 250px;
+}
+
+.row {
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+.lucky-row {
+    padding-top: 100px;
+}
+
+.result-image {
+    width: 50%;
+}
+
+.generate-btn {
+    background-color: white;
+    color: black;
+    width: 800px;
+    font-size: 20px;
+}
+
+.giphy-home-image {
+    padding: 20px;
+}
+
+.result-container {
+    padding-top: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+input[type='checkbox'] {
+    width: 20px;
+    height: 20px;
+    background: white;
+}
+
+.center {
+    text-align: center;
+}
+
+.lucky-result-container {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.result-image {
+    width: 50%;
+}
+
+.giphy-home-image {
+    padding: 20px;
+}
+
+.result-container {
+    padding-top: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+input[type='checkbox'] {
+    width: 20px;
+    height: 20px;
+    background: white;
+}
+
+.finetune {
+    width: 300px;
+}
+
+.button-wrapper {
+    text-align: center;
+}
+body{
+    font-family: Arial;
+}
+       

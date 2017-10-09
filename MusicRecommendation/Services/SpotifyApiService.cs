@@ -20,14 +20,14 @@ namespace MusicRecommendation.Services
             _client = spotifyClient.GetDefaultClient();
         }
 
-        public async Task<SearchArtistResponse> SearchArtistsAsync(string artistName)
+        public async Task<SpotifySearchArtistResponse> SearchArtistsAsync(string artistName)
         {
             var url = new Url("/v1/search");
             url = url.SetQueryParam("q", artistName);
             url = url.SetQueryParam("type", "artist");
 
             var response = await _client.GetStringAsync(url);
-            var artistResponse = JsonConvert.DeserializeObject<SearchArtistResponse>(response);
+            var artistResponse = JsonConvert.DeserializeObject<SpotifySearchArtistResponse>(response);
 
             return artistResponse;
         }

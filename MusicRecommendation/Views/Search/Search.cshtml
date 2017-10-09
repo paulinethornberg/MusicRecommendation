@@ -1,48 +1,10 @@
 ﻿@model SearchResultVM
 
-<style>
-    .result-image {
-        width: 50%;
-    }
-
-    .search-result-list {
-        /*display: inline-block;*/
-    }
-
-    .giphy-home-image {
-        padding: 20px;
-    }
-    .result-container{
-        padding-top: 20px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-    }
-
-    input[type='checkbox'] {
-        width: 20px;
-        height: 20px;
-        background: white;
-    }
-    .finetune{
-        width: 300px;
-    }
-    .button-wrapper {
-        text-align: center;
-    }
-    
-
-       
-</style>
-
 <h3 class="test-class">Recommended songs</h3>
-<h4>You dont like what you see? Pick maximum 5 of your favourite songs below to genereate new ones! </h4>
+<h4>Don't like what you see? Pick maximum 5 of your favourite songs below to genereate new songs! </h4>
 
 @using (Html.BeginForm("FineTune", "Search", FormMethod.Post))
 {
-    <div class="col-lg-12 button-wrapper">
-        <input type="submit" class="btn-btn-default finetune" value="FineTune" />
-    </div>
-
     @for (int i = 0; i < Model.Tracks.Count; i++)
     {
         <div class="row result-container">
@@ -57,7 +19,6 @@
                     <source src="@Model.Tracks[i].PreviewUrl" type="video/ogg">
                     Your browser does not support the video tag.
                 </video>
-                @*<a>@Model.Tracks[i].Href</a>*@
                 @Html.CheckBoxFor(x => Model.Tracks[i].ChosenForFineTuning, new { @class = "checkbox" })
             </div>
         </div>
@@ -65,15 +26,13 @@
         @Html.HiddenFor(x => Model.Tracks[i].Artist)
         @Html.HiddenFor(x => Model.Tracks[i].ArtistId)
         @Html.HiddenFor(x => Model.Tracks[i].Id)
-        @*@Html.HiddenFor(x => Model.Tracks[i].Href)*@
         @Html.HiddenFor(x => Model.Tracks[i].ImageUrl)
         @Html.HiddenFor(x => Model.Tracks[i].PreviewUrl)
     }
 
     <div class="col-lg-12 button-wrapper">
-        <input type="submit" class="btn-btn-default" value="FineTune" />
+        <input type="submit" class="btn-btn-default generate-btn" value="Fine-tune recommendation" />
     </div>
 }
 
-<link rel="stylesheet" href="~/css/site.css" />
 
