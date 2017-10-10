@@ -19,11 +19,11 @@ namespace MusicRecommendation.Mappers
             }).First();
         }
 
-        public SearchResultVM MapToViewModel(SpotifyRecommendationsResult _recommendationResult)
+        public SearchResultVM MapToViewModel(SpotifyRecommendationsResult recommendationResult)
         {
-            var searchResultVM = new SearchResultVM
+            return new SearchResultVM
             {
-                Tracks = _recommendationResult.Tracks.Select(x => new Track
+                Tracks = recommendationResult.Tracks.Select(x => new Track
                 {
                     Name = x.Name,
                     Artist = x.Artists?[0].Name,
@@ -33,7 +33,6 @@ namespace MusicRecommendation.Mappers
 
                 }).Where(x => x.PreviewUrl != null).Take(10).ToList(),
             };
-            return searchResultVM;
         }
     }
 

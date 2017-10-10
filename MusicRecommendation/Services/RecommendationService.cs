@@ -44,7 +44,7 @@ namespace MusicRecommendation.Services
 
         public async Task<SpotifyTracksResponse> GetRandom()
         {
-            var listOfSearchTerms = new List<string> { "%25a%25", "a%25", "%25e%25", "e%25", "%25i%25", "i%25", "%25o%25", "o%25" };
+            var listOfSearchTerms = new List<string> { "a", "e", "i", "o", "u", "y", "å", "ä", "ö" };
             var random = new Random();
             var randomIndex = random.Next(listOfSearchTerms.Count);
             var randomOffset = random.Next(1, 1000);

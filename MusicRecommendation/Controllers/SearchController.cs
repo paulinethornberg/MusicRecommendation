@@ -10,14 +10,12 @@ namespace MusicRecommendation.Controllers
 {
     public class SearchController : Controller
     {
-        private ISpotifyApiService _spotifyService;
-        private ISearchResultMapper _searchResultMapper;
-        private IRecommendationService _recommendationService;
+        private readonly ISearchResultMapper _searchResultMapper;
+        private readonly IRecommendationService _recommendationService;
 
-        public SearchController(ISpotifyApiService spotifyService, ISearchResultMapper mapper, IRecommendationService recommendationService)
+        public SearchController( ISearchResultMapper mapper, IRecommendationService recommendationService)
         {
             _recommendationService = recommendationService;
-            _spotifyService = spotifyService;
             _searchResultMapper = mapper;
         }
 
@@ -27,9 +25,9 @@ namespace MusicRecommendation.Controllers
             try
             {
                 var recommendationResult = await _recommendationService.RecommendationByArtist(artist);
-                var searchResultVM = _searchResultMapper.MapToViewModel(recommendationResult);
+                var searchResultVm = _searchResultMapper.MapToViewModel(recommendationResult);
 
-                return View(searchResultVM);
+                return View(searchResultVm);
             }
             catch (System.Exception)
             {
