@@ -12,9 +12,9 @@ namespace MusicRecommendation.UnitTests
 {
     public class SearchResultMapperTests :TestSpecification
     {
-        private ISearchResultMapper _searchResultMapper;
+        private readonly ISearchResultMapper _searchResultMapper;
         private SpotifyRecommendationsResult _recommendationResult;
-        private SearchResultVM _searchResultVM;
+        private SearchResultVM _searchResultVm;
 
         public SearchResultMapperTests()
         {
@@ -33,7 +33,6 @@ namespace MusicRecommendation.UnitTests
                         Name = "testName",
                         Id = "000000",
                         Popularity = 1,
-                        Href = "I am the Href",
                         PreviewUrl = "this is the previewUrl",
                         Type = "type",
                         Uri = "uriuriuri",
@@ -52,27 +51,27 @@ namespace MusicRecommendation.UnitTests
 
         protected override void When()
         {
-            _searchResultVM = _searchResultMapper.MapToViewModel(_recommendationResult);
+            _searchResultVm = _searchResultMapper.MapToViewModel(_recommendationResult);
         }
 
         [Fact]
         public void It_should_map_name_of_tracks()
         {
-            _searchResultVM.Tracks[0].Name.ShouldBe("testName");
+            _searchResultVm.Tracks[0].Name.ShouldBe("testName");
 
         }
 
         [Fact]
         public void It_should_map_the_previewUrl_of_tracks()
         {
-            _searchResultVM.Tracks[0].PreviewUrl.ShouldBe("this is the previewUrl");
+            _searchResultVm.Tracks[0].PreviewUrl.ShouldBe("this is the previewUrl");
         }
 
         [Fact]
         public void It_should_map_the_artist_of_tracks()
         {
-            _searchResultVM.Tracks[0].Artist.ShouldBe("Beyonce");
-            _searchResultVM.Tracks[0].ArtistId.ShouldBe("11111");
+            _searchResultVm.Tracks[0].Artist.ShouldBe("Beyonce");
+            _searchResultVm.Tracks[0].ArtistId.ShouldBe("11111");
         }
     }
 }

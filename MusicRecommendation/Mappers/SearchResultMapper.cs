@@ -12,10 +12,10 @@ namespace MusicRecommendation.Mappers
             return randomSearchResponse.Tracks.Items.Select(x => new RandomTrackVM
             {
                 Name = x.Name,
-                Artist = x.Artists[0].Name,
-                ArtistId = x.Artists[0].Id,
+                Artist = x.Artists?[0].Name,
+                ArtistId = x.Artists?[0].Id,
                 PreviewUrl = x.Preview_url,
-                ImageUrl = x.Album.Images[0].Url,
+                ImageUrl = x.Album?.Images?[0].Url 
             }).First();
         }
 
@@ -26,10 +26,10 @@ namespace MusicRecommendation.Mappers
                 Tracks = _recommendationResult.Tracks.Select(x => new Track
                 {
                     Name = x.Name,
-                    Artist = x.Artists[0].Name,
-                    ArtistId = x.Artists[0].Id,
+                    Artist = x.Artists?[0].Name,
+                    ArtistId = x.Artists?[0].Id,
                     PreviewUrl = x.PreviewUrl,
-                    ImageUrl = x.Album.Images[0].Url
+                    ImageUrl = x.Album?.Images?[0].Url
 
                 }).Where(x => x.PreviewUrl != null).Take(10).ToList(),
             };

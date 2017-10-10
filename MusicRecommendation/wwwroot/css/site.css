@@ -2,8 +2,7 @@
     padding-top: 50px;
     padding-bottom: 20px;
 }
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
+
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
@@ -18,10 +17,6 @@ textarea {
 
 .search-result-list {
     display: inline-block;
-}
-
-.giphy-home-image{
-    padding: 20px;
 }
 
 /*------- for home index*/
@@ -97,9 +92,9 @@ input[type=radio] + label > img {
     font-size: 20px;
 }
 
-.giphy-home-image {
+/*.giphy-home-image {
     padding: 20px;
-}
+}*/
 
 .result-container {
     padding-top: 20px;
